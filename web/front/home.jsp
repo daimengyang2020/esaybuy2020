@@ -41,8 +41,13 @@
 
     <script type="text/javascript" src="js/lrscroll_1.js"></script>
 
-
-    <title>尤洪</title>
+<%
+  Object obj=  request.getAttribute("categorgList");
+  if(obj==null){
+      response.sendRedirect(request.getContextPath()+"/home?action=index");
+  }
+%>
+    <title>易买网</title>
 </head>
 <body>
 <!--Begin Header Begin-->
@@ -125,7 +130,7 @@
         </span>
         <!--End 所在收货地区 End-->
         <span class="fr">
-        	<span class="fl">你好，请<a href="Login.html">登录</a>&nbsp; <a href="Regist.html" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|</span>
+        	<span class="fl">你好，请<a href="front/login.jsp">登录</a>&nbsp; <a href="Regist.html" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|</span>
         	<span class="ss">
             	<div class="ss_list">
                 	<a href="#">收藏夹</a>
@@ -184,7 +189,7 @@
         <div class="car_t">购物车 [ <span>3</span> ]</div>
         <div class="car_bg">
             <!--Begin 购物车未登录 Begin-->
-            <div class="un_login">还未登录！<a href="Login.html" style="color:#ff4e00;">马上登录</a> 查看购物车！</div>
+            <div class="un_login">还未登录！<a href="login.jsp" style="color:#ff4e00;">马上登录</a> 查看购物车！</div>
             <!--End 购物车未登录 End-->
             <!--Begin 购物车已登录 Begin-->
             <ul class="cars">
@@ -464,13 +469,6 @@
             <c:forEach var="categorg" items="${categorgList}">
                 <li><a href="#">${categorg.name}</a></li>
             </c:forEach>
-            <%--<li><a href="Food.html">美食</a></li>--%>
-            <%--<li><a href="Fresh.html">生鲜</a></li>--%>
-            <%--<li><a href="HomeDecoration.html">家居</a></li>--%>
-            <%--<li><a href="SuitDress.html">女装</a></li>--%>
-            <%--<li><a href="MakeUp.html">美妆</a></li>--%>
-            <%--<li><a href="Digital.html">数码</a></li>--%>
-            <%--<li><a href="GroupBuying.html">团购</a></li>--%>
         </ul>
         <div class="m_ad">中秋送好礼！</div>
     </div>
